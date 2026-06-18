@@ -1,0 +1,7 @@
+# .gitignore
+# Exclude the large raw data file and generated PNGs
+household_power_consumption.txt
+# R workspace files
+.RData
+.Rhistory
+.Rproj.user
