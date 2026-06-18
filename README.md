@@ -8,23 +8,13 @@ This repository reproduces the four required exploratory plots (plus an addition
 - **File:** `data/household_power_consumption.txt` (≈20 MB)
 - **Missing values:** `?` (treated as `NA`)
 
-## Project Structure
-```
-ExData_Plotting1/
-├─ data/                     # raw data + processed subset
-│   ├─ household_power_consumption.txt
-│   └─ subset_data.RData
-├─ scripts/                  # R scripts
-│   ├─ load_data.R
-│   ├─ plot1.R
-│   ├─ plot2.R
-│   ├─ plot3.R
-│   ├─ plot4.R
-│   └─ global_active_power_vs_frequency.R
-├─ images/                   # generated PNGs (git‑ignored)
-├─ .gitignore
-└─ README.md
-```
+## Project Files
+- `scripts/load_data.R`
+- `scripts/plot1.R`
+- `scripts/plot2.R`
+- `scripts/plot3.R`
+- `scripts/plot4.R`
+- `scripts/global_active_power_vs_frequency.R`
 
 ## How to Run
 1. **Install R** (>= 4.6.0) and ensure `Rscript` is on your PATH.
