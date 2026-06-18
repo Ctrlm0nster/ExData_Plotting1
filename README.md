@@ -1,27 +1,59 @@
-# ExData Plotting Project
+# ExData Plotting Assignment – Completed
 
-This repository contains R scripts and generated PNG files for the **Individual household electric power consumption** dataset (UCI Machine Learning Repository).
+## Overview
+This repository reproduces the four required exploratory plots (plus an additional frequency histogram) from the **Individual household electric power consumption** dataset (UCI Machine Learning Repository). All scripts use base R graphics, generate 480 × 480 px PNG files, and are fully reproducible.
 
-## Files
-- `load_data.R` – Helper to read the raw data, handle missing values, convert dates, and subset to 2007‑02‑01 and 2007‑02‑02.
-- `plot1.R` – Global Active Power over time (line plot).
-- `plot2.R` – Voltage over time (line plot).
-- `plot3.R` – Energy sub‑metering comparison (multiple line plot).
-- `plot4.R` – 2×2 panel of four base‑R plots (global active power, voltage, energy sub‑metering, and global reactive power).
-- `build_all.R` – Convenience script to generate all four plots in one run.
-- `.gitignore` – Excludes the large raw dataset and generated PNGs.
-- `README.md` – This file.
+## Dataset
+- **Source:** https://archive.ics.uci.edu/ml/datasets/Individual+household+electric+power+consumption
+- **File:** `data/household_power_consumption.txt` (≈20 MB)
+- **Missing values:** `?` (treated as `NA`)
 
-## Usage
-1. Place the original dataset file `household_power_consumption.txt` (the 20 MB text file) in the repository root.
-2. Run the scripts individually, e.g.:
-   ```
-   Rscript plot1.R
-   ```
-   This creates `plot1.png` (480×480 px).
-3. Or generate all plots at once:
-   ```
-   Rscript build_all.R
-   ```
+## Project Structure
+```
+ExData_Plotting1/
+├─ data/                     # raw data + processed subset
+│   ├─ household_power_consumption.txt
+│   └─ subset_data.RData
+├─ scripts/                  # R scripts
+│   ├─ load_data.R
+│   ├─ plot1.R
+│   ├─ plot2.R
+│   ├─ plot3.R
+│   ├─ plot4.R
+│   └─ global_active_power_vs_frequency.R
+├─ images/                   # generated PNGs (git‑ignored)
+├─ .gitignore
+└─ README.md
+```
 
-All PNG files are created with width = 480 and height = 480 pixels using base R graphics.
+## How to Run
+1. **Install R** (>= 4.6.0) and ensure `Rscript` is on your PATH.
+2. **Place the raw dataset** at `data/household_power_consumption.txt`.
+3. **Create the subset data** (run once):
+   ```
+   Rscript scripts/load_data.R
+   ```
+4. **Generate the plots** (individually or all at once):
+   ```
+   Rscript scripts/plot1.R
+   Rscript scripts/plot2.R
+   Rscript scripts/plot3.R
+   Rscript scripts/plot4.R
+   Rscript scripts/global_active_power_vs_frequency.R
+   ```
+   Each command creates a PNG in the `images/` folder.
+
+## Plot Descriptions
+| Plot | Description |
+|------|-------------|
+| `plot1.png` | Global Active Power (kilowatts) over the two‑day period (line plot). |
+| `plot2.png` | Voltage (volts) over the two‑day period (line plot). |
+| `plot3.png` | Energy sub‑metering 1‑3 (kitchen, laundry, water‑heater/AC) over time (multiple lines with legend). |
+| `plot4.png` | 2 × 2 panel: Global Active Power, Voltage, Energy sub‑metering, Global Reactive Power. |
+| `global_active_power_vs_frequency.png` | Histogram (frequency) of Global Active Power values for the two days. |
+
+## Reproducibility Checks
+- **Memory estimate:** Full dataset ≈ 150 MB; the filtered subset uses < 5 MB.
+- **Subset verification:** `load_data.R` filters to `2007‑02‑01` ≤ DateTime < `2007‑02‑03`.
+- **Base R only:** No external graphics libraries required.
+---
